@@ -33,3 +33,30 @@ body,html,#root{height:100%;margin:0}
 svg [data-highlighted]{stroke:var(--accent) !important;stroke-width:2 !important;fill:none !important}
 .hint{color:var(--muted);font-size:12px;margin-top:6px}
 .kbd-hint{color:var(--muted);font-size:12px;margin-left:12px}
+.layer-panel{padding:12px;border-top:1px solid rgba(255,255,255,0.08)}
+.layer-panel h3{margin:0 0 8px 0;font-size:14px}
+.layers-list{overflow-y:auto;max-height:200px;font-size:12px}
+.layer-item{margin:2px 0}
+.layer-row{display:flex;align-items:center;gap:4px;padding:4px;border-radius:4px}
+.layer-row:hover{background:rgba(255,255,255,0.05)}
+.expand-btn{background:none;border:none;color:inherit;cursor:pointer;padding:0;width:16px;text-align:center;font-size:10px}
+.expand-placeholder{width:16px;display:inline-block}
+.layer-name{flex:1;cursor:pointer;padding:2px 4px;border-radius:3px}
+.layer-name:hover{background:rgba(6,182,212,0.2)}
+.layer-btn{background:none;border:none;color:inherit;cursor:pointer;padding:2px;font-size:12px}
+.layer-btn:hover{opacity:0.8}
+.layer-children{margin-left:0}
+.shape-tools{padding:12px;border-top:1px solid rgba(255,255,255,0.08)}
+.shape-tools h4{margin:0 0 8px 0;font-size:13px}
+.shape-buttons{display:flex;gap:4px;margin-bottom:8px}
+.shape-buttons .btn{flex:1;font-size:14px}
+.shape-buttons .btn.active{background:#ef4444;opacity:1}
+.drawing-overlay{position:absolute;top:0;left:0;width:100%;height:100%;cursor:crosshair;display:none}
+.animation-panel{padding:12px;border-top:1px solid rgba(255,255,255,0.08)}
+.animation-panel h3{margin:0 0 8px 0;font-size:14px}
+.anim-form{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.anim-form label{display:flex;flex-direction:column;gap:2px;font-size:12px}
+.anim-form select,.anim-form input{padding:4px;border-radius:4px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;font-size:11px}
+.anim-list{margin-top:12px}
+.anim-list h4{margin:0 0 8px 0;font-size:12px}
+.anim-item{display:flex;justify-content:space-between;align-items:center;padding:6px;background:rgba(255,255,255,0.02);border-radius:4px;margin-bottom:4px;font-size:11px}
