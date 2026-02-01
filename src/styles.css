@@ -1,0 +1,24 @@
+:root{--bg:#0f1724;--panel:#0b1220;--muted:#94a3b8;--accent:#06b6d4}
+*{box-sizing:border-box;font-family:Inter, system-ui, Arial}
+body,html,#root{height:100%;margin:0}
+.app-root{height:100vh;display:flex;flex-direction:column;background:linear-gradient(180deg,#071021 0%,#071320 100%);color:#e6eef6}
+.app-header{padding:12px 18px;font-size:18px;font-weight:600}
+.top-row{display:flex;gap:12px;padding:8px 18px;align-items:center}
+.toolbar{display:flex;gap:8px;align-items:center}
+.file-import .btn{position:relative;overflow:hidden}
+.file-import input{position:absolute;left:0;top:0;opacity:0;width:100%;height:100%}
+.btn{background:var(--accent);border:none;padding:8px 12px;border-radius:6px;color:#042028;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.editor-area{flex:1;display:flex;padding:12px 18px}
+.canvas-root{display:flex;flex:1;gap:12px}
+.svg-area{flex:1;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.04);min-height:420px;padding:12px;overflow:auto}
+.inspector{width:320px;background:rgba(10,15,20,0.6);border-radius:8px;padding:12px}
+.inspector h3{margin:0 0 8px 0}
+.inspector .muted{color:var(--muted)}
+.props label{display:flex;flex-direction:column;margin-top:8px}
+.props input{padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+.history-controls{display:flex;gap:8px;margin-top:12px}
+.current-xml textarea{width:100%;height:120px;margin-top:8px;background:#05101a;color:#dbeafe;border-radius:6px;padding:6px;border:none}
+svg [data-highlighted]{stroke:var(--accent);stroke-width:2}
+.hint{color:var(--muted);font-size:12px;margin-top:6px}
+.kbd-hint{color:var(--muted);font-size:12px;margin-left:12px}
