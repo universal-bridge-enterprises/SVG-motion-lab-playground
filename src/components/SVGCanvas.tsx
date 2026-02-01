@@ -121,6 +121,13 @@ export default function SVGCanvas({ svgText, onChange }: Props) {
   }
 
   const svg = containerRef.current?.querySelector('svg')
+  const [xmlText, setXmlText] = useState<string>(svgText || '')
+
+  useEffect(() => {
+    // keep inspector XML in sync when svgText changes externally
+    const current = containerRef.current?.querySelector('svg')?.outerHTML || svgText || ''
+    setXmlText(current)
+  }, [svgText])
 
   return (
     <div className="canvas-root">
@@ -217,7 +224,56 @@ export default function SVGCanvas({ svgText, onChange }: Props) {
 
         <div className="current-xml">
           <h4>SVG XML</h4>
-          <textarea readOnly value={svg?.outerHTML || ''} />
+          <div style={{display: 'flex', gap: 8}}>
+            <button
+              className="btn"
+              onClick={() => {
+                navigator.clipboard.writeText(xmlText || '')
+                // small feedback could be added later
+              }}
+              disabled={!xmlText}
+            >
+              Copy
+            </button>
+            <button
+              className="btn"
+              onClick={() => {
+                // apply textarea contents to canvas
+                try {
+                  renderSVG(xmlText)
+                  onChange(xmlText)
+                  pushToHistory(xmlText)
+                } catch (err) {
+                  console.error('Failed to apply SVG XML', err)
+                }
+              }}
+              disabled={!xmlText}
+            >
+              Apply
+            </button>
+          </div>
+          <textarea
+            value={xmlText}
+            onChange={(e) => setXmlText(e.target.value)}
+            onPaste={(e) => {
+              const txt = e.clipboardData.getData('text')
+              if (txt && txt.trim().startsWith('<svg')) {
+                e.preventDefault()
+                setXmlText(txt)
+                // auto-apply pasted svg
+                renderSVG(txt)
+                onChange(txt)
+                pushToHistory(txt)
+              }
+            }}
+            onKeyDown={(e) => {
+              if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                renderSVG(xmlText)
+                onChange(xmlText)
+                pushToHistory(xmlText)
+              }
+            }}
+          />
         </div>
       </aside>
     </div>
